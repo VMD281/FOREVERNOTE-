@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Edit Note</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    .form-container {
+      margin: 0 auto;
+      width: 50%;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body class="container">
+  <center class="row">
+    <h1>Edit Note</h1>
+    <hr />
+  </center>
+  
+  <div class="form-container">
+    <form method="POST" action="{% url 'edit' note.id %}">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <center>
+        <input type="submit" class="btn btn-default" value="Save changes" />
+      </center>
+    </form>
+  </div>
+</body>
+</html>
